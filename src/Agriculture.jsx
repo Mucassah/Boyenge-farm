@@ -16,7 +16,6 @@ const Agriculture = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Artificial delay to allow assets to settle and show the spinner
     const timer = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
@@ -42,7 +41,6 @@ const Agriculture = () => {
           <a href="#about">ABOUT US</a>
           <button className="contact-btn desktop-only">CONTACT</button>
         </div>
-        <button className="contact-btn mobile-only">CONTACT</button>
       </nav>
 
       {/* --- HERO SECTION --- */}
@@ -83,7 +81,6 @@ const Agriculture = () => {
           </div>
         </div>
 
-        {/* --- STATS BANNER --- */}
         <div className="stats-banner">
           <div className="stat-item">
             <h3>200+</h3>
@@ -114,7 +111,6 @@ const Agriculture = () => {
         </div>
 
         <div className="services-grid">
-          {/* Card 01 */}
           <div className="service-card reveal-up" style={{ backgroundImage: `url(${CropImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">01</span> CROP PRODUCTION</h3>
@@ -124,7 +120,6 @@ const Agriculture = () => {
             </div>
           </div>
 
-          {/* Card 02 */}
           <div className="service-card reveal-up" style={{ backgroundImage: `url(${SmartImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">02</span> SMART AGRICULTURE</h3>
@@ -135,7 +130,6 @@ const Agriculture = () => {
             </div>
           </div>
 
-          {/* Card 03 */}
           <div className="service-card reveal-up" style={{ backgroundImage: `url(${SupplyImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">03</span> AGRI SUPPLY CHAIN</h3>
@@ -146,7 +140,6 @@ const Agriculture = () => {
             </div>
           </div>
 
-          {/* Card 04 */}
           <div className="service-card reveal-up" style={{ backgroundImage: `url(${ProcessingImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">04</span> AGRO PROCESSING</h3>
@@ -157,7 +150,6 @@ const Agriculture = () => {
             </div>
           </div>
 
-          {/* Card 05 */}
           <div className="service-card reveal-up" style={{ backgroundImage: `url(${AdvisoryImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">05</span> AGRI INVESTMENT & ADVISORY</h3>
@@ -168,7 +160,6 @@ const Agriculture = () => {
             </div>
           </div>
 
-          {/* Card 06 */}
           <div className="service-card reveal-up" style={{ backgroundImage: `url(${AnimalImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">06</span> LIVESTOCK & ANIMAL PRODUCTION</h3>
@@ -181,7 +172,7 @@ const Agriculture = () => {
         </div>
       </section>
 
-      {/* --- FULL WIDTH FLUSH FOOTER --- */}
+      {/* --- FULL WIDTH FOOTER --- */}
       <footer className="footer-section">
         <div className="footer-columns-container reveal-up">
           <div className="footer-col logo-column">
