@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './Agriculture.css';
 
 // Asset Imports
-import Logo from './assets/Logo.jpg';
-import HeroImg from './assets/Hero.png';
+import Logo from './assets/Logo.webp';
+import HeroImg from './assets/Hero.webp';
 import AboutImg from './assets/About.png';
 import CropImg from './assets/Crop.png';
 import SmartImg from './assets/Smart.png';
