@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Agriculture from "./Agriculture"; 
+import Contact from './Contact';
 import './App.css';
 
 function App() {
@@ -14,6 +15,8 @@ function App() {
         
         {/* Optional: Redirect any unknown URL back to home */}
         <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/contact" element={<Contact />} />
+        
       </Routes>
     </Router>
   );

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Agriculture.css';
 
 // Asset Imports
@@ -14,6 +15,7 @@ import AnimalImg from './assets/Animal.png';
 
 const Agriculture = () => {
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Initialize navigation
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1200);
@@ -33,13 +35,21 @@ const Agriculture = () => {
       {/* --- STICKY NAVBAR --- */}
       <nav className="navbar">
         <div className="logo-box">
-          <a href="#top">
-            <img src={Logo} alt="Logo" />
-          </a>
+          <img 
+            src={Logo} 
+            alt="Logo" 
+            onClick={() => navigate('/')} 
+            style={{ cursor: 'pointer' }} 
+          />
         </div>
         <div className="nav-links">
           <a href="#about">ABOUT US</a>
-          <button className="contact-btn desktop-only">CONTACT</button>
+          <button 
+            className="contact-btn desktop-only" 
+            onClick={() => navigate('/contact')}
+          >
+            CONTACT
+          </button>
         </div>
       </nav>
 
@@ -52,7 +62,13 @@ const Agriculture = () => {
               <span className="nowrap">FEEDING MARKETS,</span><br />
               BUILDING VALUE
             </h1>
-            <button className="quote-btn">GET A QUOTE</button>
+            {/* UPDATED: Get a Quote now navigates to Contact */}
+            <button 
+              className="quote-btn" 
+              onClick={() => navigate('/contact')}
+            >
+              GET A QUOTE
+            </button>
           </div>
         </section>
       </div>
@@ -185,8 +201,9 @@ const Agriculture = () => {
 
           <div className="footer-col nav-col">
             <h4 className="footer-heading">NAVIGATION</h4>
-            <a href="#top">Home</a>
-            <a href="#contact">Contact</a>
+            <a href="#top" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
+            {/* UPDATED: Footer Contact link now uses navigate */}
+            <a href="#contact" onClick={(e) => { e.preventDefault(); navigate('/contact'); }}>Contact</a>
             <a href="#about">About Us</a>
           </div>
 
