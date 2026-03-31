@@ -43,7 +43,8 @@ const Agriculture = () => {
           />
         </div>
         <div className="nav-links">
-          <a href="#about">ABOUT US</a>
+          {/* UPDATED: Navigates to AboutUs page */}
+          <a href="/about" onClick={(e) => { e.preventDefault(); navigate('/about'); }}>ABOUT US</a>
           <button 
             className="contact-btn desktop-only" 
             onClick={() => navigate('/contact')}
@@ -204,20 +205,22 @@ const Agriculture = () => {
             <a href="#top" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
             {/* UPDATED: Footer Contact link now uses navigate */}
             <a href="#contact" onClick={(e) => { e.preventDefault(); navigate('/contact'); }}>Contact</a>
-            <a href="#about">About Us</a>
+            {/* UPDATED: Navigates to AboutUs page */}
+            <a href="/about" onClick={(e) => { e.preventDefault(); navigate('/about'); }}>About Us</a>
           </div>
 
           <div className="footer-col contact-col">
             <h4 className="footer-heading">CONTACT</h4>
             <p>+243 854 543 130</p>
-            <p>agribusiness@boyenge.com</p>
-            <p>Qatar, Dubai | China, Congo</p>
+            <p>farm@boyenge.com</p>
+            <p>42 Boulevard, Maman Sanza Lisasi, Q/Sanza City, PK30, C/Ubundu, Kisangani , Tshopo, Congo Kinshasa</p>
           </div>
 
           <div className="footer-col legal-col">
             <h4 className="footer-heading">LEGAL</h4>
             <a href="#tos" className="underline">Terms of Service</a>
             <a href="#privacy" className="underline">Privacy Policy</a>
+            copyright@BoyengeHoldingGroup
           </div>
         </div>
       </footer>

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import './Agriculture.css';
 
 // Asset Imports
-import Logo from './assets/Logo.jpg';
-import HeroImg from './assets/Hero.png';
+import Logo from './assets/Logo.webp';
+import HeroImg from './assets/Hero.webp';
 import AboutImg from './assets/About.png';
 import CropImg from './assets/Crop.png';
 import SmartImg from './assets/Smart.png';
@@ -13,39 +14,67 @@ import AdvisoryImg from './assets/Advisory.png';
 import AnimalImg from './assets/Animal.png';
 
 const Agriculture = () => {
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Initialize navigation
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1200);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loader-container">
+        <div className="spinner"></div>
+      </div>
+    );
+  }
+
   return (
-    <div className="page-wrapper" id="top">
+    <div className="page-wrapper fade-in" id="top">
       {/* --- STICKY NAVBAR --- */}
       <nav className="navbar">
         <div className="logo-box">
-          <a href="#top">
-            <img src={Logo} alt="Logo" />
-          </a>
+          <img 
+            src={Logo} 
+            alt="Logo" 
+            onClick={() => navigate('/')} 
+            style={{ cursor: 'pointer' }} 
+          />
         </div>
         <div className="nav-links">
-          {/* Services link removed */}
           <a href="#about">ABOUT US</a>
-          <button className="contact-btn desktop-only">CONTACT</button>
+          <button 
+            className="contact-btn desktop-only" 
+            onClick={() => navigate('/contact')}
+          >
+            CONTACT
+          </button>
         </div>
-        <button className="contact-btn mobile-only">CONTACT</button>
       </nav>
 
       {/* --- HERO SECTION --- */}
       <div className="hero-wrapper">
         <section className="hero-container" id="home">
           <div className="hero-bg" style={{ backgroundImage: `url(${HeroImg})` }}></div>
-          <div className="hero-text-content">
+          <div className="hero-text-content reveal-up">
             <h1 className="hero-heading">
               <span className="nowrap">FEEDING MARKETS,</span><br />
               BUILDING VALUE
             </h1>
-            <button className="quote-btn">GET A QUOTE</button>
+            {/* UPDATED: Get a Quote now navigates to Contact */}
+            <button 
+              className="quote-btn" 
+              onClick={() => navigate('/contact')}
+            >
+              GET A QUOTE
+            </button>
           </div>
         </section>
       </div>
 
       {/* --- ABOUT SECTION --- */}
-      <section className="about-section" id="about">
+      <section className="about-section reveal-up" id="about">
         <div className="about-grid">
           <div className="about-text">
             <h2 className="about-title">
@@ -68,7 +97,6 @@ const Agriculture = () => {
           </div>
         </div>
 
-        {/* --- STATS BANNER --- */}
         <div className="stats-banner">
           <div className="stat-item">
             <h3>200+</h3>
@@ -91,7 +119,7 @@ const Agriculture = () => {
 
       {/* --- SERVICES SECTION --- */}
       <section className="services-section" id="services">
-        <div className="services-header">
+        <div className="services-header reveal-up">
           <p className="services-subtitle">----SERVICES</p>
           <h2 className="services-main-heading">
             We position agriculture as both a <span className="green-text">productive industry</span> and a <span className="green-text">strategic investment asset class</span>
@@ -99,7 +127,7 @@ const Agriculture = () => {
         </div>
 
         <div className="services-grid">
-          <div className="service-card" style={{ backgroundImage: `url(${CropImg})` }}>
+          <div className="service-card reveal-up" style={{ backgroundImage: `url(${CropImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">01</span> CROP PRODUCTION</h3>
               <div className="card-tags">
@@ -108,7 +136,7 @@ const Agriculture = () => {
             </div>
           </div>
 
-          <div className="service-card" style={{ backgroundImage: `url(${SmartImg})` }}>
+          <div className="service-card reveal-up" style={{ backgroundImage: `url(${SmartImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">02</span> SMART AGRICULTURE</h3>
               <p className="card-desc">Integration of Agri-technology and data systems to modernize production and reduce risk</p>
@@ -118,7 +146,7 @@ const Agriculture = () => {
             </div>
           </div>
 
-          <div className="service-card" style={{ backgroundImage: `url(${SupplyImg})` }}>
+          <div className="service-card reveal-up" style={{ backgroundImage: `url(${SupplyImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">03</span> AGRI SUPPLY CHAIN</h3>
               <p className="card-desc">Integrated post harvest and distribution strategies ensure product integrity and market efficiency</p>
@@ -128,7 +156,7 @@ const Agriculture = () => {
             </div>
           </div>
 
-          <div className="service-card" style={{ backgroundImage: `url(${ProcessingImg})` }}>
+          <div className="service-card reveal-up" style={{ backgroundImage: `url(${ProcessingImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">04</span> AGRO PROCESSING</h3>
               <p className="card-desc">We extend beyond raw production into value-added processing to increase margins and market reach</p>
@@ -138,7 +166,7 @@ const Agriculture = () => {
             </div>
           </div>
 
-          <div className="service-card" style={{ backgroundImage: `url(${AdvisoryImg})` }}>
+          <div className="service-card reveal-up" style={{ backgroundImage: `url(${AdvisoryImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">05</span> AGRI INVESTMENT & ADVISORY</h3>
               <p className="card-desc">Boyenge Farming & Agribusiness also serves as an agricultural investment and advisory platform</p>
@@ -148,7 +176,7 @@ const Agriculture = () => {
             </div>
           </div>
 
-          <div className="service-card" style={{ backgroundImage: `url(${AnimalImg})` }}>
+          <div className="service-card reveal-up" style={{ backgroundImage: `url(${AnimalImg})` }}>
             <div className="card-overlay">
               <h3 className="card-title"><span className="card-num">06</span> LIVESTOCK & ANIMAL PRODUCTION</h3>
               <p className="card-desc">Integrated livestock systems designed for efficiency, animal welfare, and traceable quality</p>
@@ -159,6 +187,40 @@ const Agriculture = () => {
           </div>
         </div>
       </section>
+
+      {/* --- FULL WIDTH FOOTER --- */}
+      <footer className="footer-section">
+        <div className="footer-columns-container reveal-up">
+          <div className="footer-col logo-column">
+            <img src={Logo} alt="Logo" className="footer-logo" />
+            <div className="footer-socials">
+              <a href="#instagram">instagram</a>
+              <a href="#facebook">Facebook</a>
+            </div>
+          </div>
+
+          <div className="footer-col nav-col">
+            <h4 className="footer-heading">NAVIGATION</h4>
+            <a href="#top" onClick={(e) => { e.preventDefault(); navigate('/'); }}>Home</a>
+            {/* UPDATED: Footer Contact link now uses navigate */}
+            <a href="#contact" onClick={(e) => { e.preventDefault(); navigate('/contact'); }}>Contact</a>
+            <a href="#about">About Us</a>
+          </div>
+
+          <div className="footer-col contact-col">
+            <h4 className="footer-heading">CONTACT</h4>
+            <p>+243 854 543 130</p>
+            <p>agribusiness@boyenge.com</p>
+            <p>Qatar, Dubai | China, Congo</p>
+          </div>
+
+          <div className="footer-col legal-col">
+            <h4 className="footer-heading">LEGAL</h4>
+            <a href="#tos" className="underline">Terms of Service</a>
+            <a href="#privacy" className="underline">Privacy Policy</a>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };

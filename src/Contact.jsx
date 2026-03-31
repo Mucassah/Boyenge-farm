@@ -133,14 +133,14 @@ const Contact = () => {
                   <div className="bl-ct-reach-dot"></div>
                   <div>
                     <strong>EMAIL</strong>
-                    <p>agribusiness@boyenge.com</p>
+                    <p>farm@boyenge.com</p>
                   </div>
                 </div>
                 <div className="bl-ct-reach-item">
                   <div className="bl-ct-reach-dot"></div>
                   <div>
                     <strong>ADDRESS</strong>
-                    <p>Congo</p>
+                    <p>42 Boulevard, Maman Sanza Lisasi, Q/Sanza City, PK30, C/Ubundu, Kisangani , Tshopo, Congo Kinshasa</p>
                   </div>
                 </div>
                 <div className="bl-ct-reach-item">
@@ -199,10 +199,9 @@ const Contact = () => {
               <h3>CONTACT</h3>
               <ul>
                 <li>+243 854 543 130</li>
-                <li>agribusiness@boyenge.com</li>
-                <li>Qatar, Dubai</li>
-                <li>China, Congo</li>
-                <li>Hong Kong, Philippines</li>
+                <li>farm@boyenge.com</li>
+                <li>42 Boulevard, Maman Sanza Lisasi, Q/Sanza City, PK30, C/Ubundu, Kisangani , Tshopo, Congo Kinshasa</li>
+                
               </ul>
             </div>
             <div className="bl-ct-footer-nav-column">
@@ -210,6 +209,7 @@ const Contact = () => {
               <ul>
                 <li><a href="#">Terms of Service</a></li>
                 <li><a href="#">Privacy Policy</a></li>
+                copyright@BoyengeHoldingGroup
               </ul>
             </div>
           </div>
