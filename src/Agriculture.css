@@ -9,7 +9,6 @@ body {
     background-color: #f5f5f5;
     font-family: "Plus Jakarta Sans", sans-serif;
     -webkit-font-smoothing: antialiased;
-    /* Sticky Fix: Body handles the overflow, not the wrapper */
     overflow-x: hidden; 
 }
 
@@ -24,7 +23,6 @@ body {
     background-color: #f5f5f5;
     padding: 20px 20px 0 20px; 
     position: relative;
-    /* Removed overflow-x: hidden here to allow position: sticky to function */
 }
 
 /* --- LOADING SPINNER --- */
@@ -200,7 +198,38 @@ body {
     .services-grid { grid-template-columns: 1fr; }
     .card-desc { opacity: 0.9; transform: none; }
     .stats-banner { grid-template-columns: repeat(2, 1fr); }
-    .footer-columns-container { grid-template-columns: 1fr; text-align: center; padding: 50px 5%; }
-    .footer-col { align-items: center; }
+    
+    .footer-columns-container { 
+        grid-template-columns: 1fr; 
+        text-align: center; 
+        padding: 50px 5%; 
+    }
+    
+    .footer-col { 
+        align-items: center; 
+    }
+
+    /* Target both Navigation and Legal columns to be horizontal */
+    .footer-col.nav-col, 
+    .footer-col.legal-col {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    /* Keep the headings (NAVIGATION / LEGAL) at the top width 100% */
+    .nav-col .footer-heading,
+    .legal-col .footer-heading {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    /* Ensure copyright text (node text in legal col) sits on its own line below the legal links */
+    .legal-col {
+        /* This ensures the plain text copyright doesn't squeeze next to the links */
+        row-gap: 15px; 
+    }
+
     .footer-logo { align-self: center; }
 }
